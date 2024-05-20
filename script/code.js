@@ -1,5 +1,3 @@
-// script.js
-
 let currentOperand = '';
 let previousOperand = '';
 let operator = null;
@@ -23,6 +21,7 @@ function appendOperator(op) {
     operator = op;
     previousOperand = currentOperand;
     currentOperand = '';
+    updateDisplay(); // Update the display with the new operator
 }
 
 function appendDecimal() {
@@ -32,7 +31,8 @@ function appendDecimal() {
 }
 
 function updateDisplay() {
-    document.getElementById('display').innerText = currentOperand || '0';
+    const display = document.getElementById('display');
+    display.innerText = `${previousOperand} ${operator || ''} ${currentOperand}`;
 }
 
 function calculate() {
